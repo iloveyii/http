@@ -37,4 +37,10 @@ header([C|R0]) ->
 	{[C|Rest], R1}.
 
 message_body(R) ->
-{R, []}.
+	{R, []}.
+
+ok(Body) ->
+	"HTTP/1.1 200 OK\r\n" ++ "\r\n" ++ Body.
+
+get(URI) ->
+	"GET " ++ URI ++ " HTTP/1.1\r\n" ++ "\r\n".
