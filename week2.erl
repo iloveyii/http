@@ -1,5 +1,5 @@
 -module(week2).
--export([second1/0, second2/1, second3/1, head/1, tail/1, sum/1, sum2/1, maximum/1 ]).
+-export([second1/0, second2/1, second3/1, head/1, tail/1, sum/1, sum2/1, maximum/1, take/2 ]).
 
 % List example - list is a collection of similar elements %
 second1() ->
@@ -36,3 +36,9 @@ sum2([X|Xs], S) -> sum2(Xs, X+S).
 % Find maximum of list %
 maximum([X]) -> X;
 maximum([X|Xs]) -> max( X, maximum(Xs) ).
+
+% Take %
+take(0, _Xs) -> [];
+take(_N, []) -> [];
+take(N, [X|Xs]) ->
+    [X | take(N-1, Xs)].
