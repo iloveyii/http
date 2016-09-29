@@ -1,6 +1,7 @@
 -module(http).
 -export([parse_request/1]).
 
+/* TEST: http:parse_request("GET /index.html HTTP/1.1\r\nfoo 34\r\n\r\nHello"). */
 parse_request(RO) ->
 	{Request, R1} = request_line(RO),
 	{Headers, R2} = headers(R1),
